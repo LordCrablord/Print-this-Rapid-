@@ -7,6 +7,7 @@ public class PlayerManager : MonoBehaviour
 {
     public float speed;
     private Vector2 move;
+    [SerializeField] CharacterController characterController;
 
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -15,7 +16,7 @@ public class PlayerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        characterController = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
@@ -28,7 +29,8 @@ public class PlayerManager : MonoBehaviour
     {
         Vector3 movement = new Vector3(move.x, 0, move.y);
 
-        transform.Translate(movement * speed * Time.deltaTime, Space.World);
+        characterController.Move(movement * speed * Time.deltaTime);
+        //transform.Translate(movement * speed * Time.deltaTime, Space.World);
 
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), 0.15f);
     }

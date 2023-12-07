@@ -59,5 +59,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pamphlet Green Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 6886006264387376768, guid: 1318e505e1d964347917c18f338ac57f, type: 3}
+      propertyPath: id
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1318e505e1d964347917c18f338ac57f, type: 3}

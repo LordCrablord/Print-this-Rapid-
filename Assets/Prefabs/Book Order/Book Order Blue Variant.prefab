@@ -61,7 +61,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7894050903727134774, guid: 6e10ac91a183c464b86ec383c000079e, type: 3}
       propertyPath: m_Name
-      value: Book Order Blue
+      value: Book Order Blue Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8209480166808684215, guid: 6e10ac91a183c464b86ec383c000079e, type: 3}
+      propertyPath: id
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e10ac91a183c464b86ec383c000079e, type: 3}

@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Storage : MonoBehaviour
 {
-    [SerializeField] GameObject objectPrefab;
-    bool isPlayerNear = false;
-    Collider playerCollider;
+    [SerializeField] protected GameObject objectPrefab;
+    protected bool isPlayerNear = false;
+    protected Collider playerCollider;
 
-    private void Update()
+    protected virtual void Update()
     {
         if (isPlayerNear)
         {
@@ -19,7 +19,7 @@ public class Storage : MonoBehaviour
         }
     }
 
-    void GiveItem()
+    protected void GiveItem()
     {
         GameObject ourObject = Instantiate(objectPrefab, transform.position, objectPrefab.transform.rotation);
         var playerManager = playerCollider.GetComponent<PlayerManager>();

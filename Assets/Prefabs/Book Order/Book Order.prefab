@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7405780172880839308}
   - component: {fileID: 5866297235406228777}
   - component: {fileID: 8542678719417711075}
+  - component: {fileID: 8209480166808684215}
   m_Layer: 0
   m_Name: Book Order
   m_TagString: Untagged
@@ -87,6 +88,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8209480166808684215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7894050903727134774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55850c9c0d99bf44faf2d11c1f75b8de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 5
 --- !u!1001 &5481342041084230265
 PrefabInstance:
   m_ObjectHideFlags: 0

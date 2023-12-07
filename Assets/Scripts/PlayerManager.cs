@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerManager : MonoBehaviour
+public class PlayerManager : Singleton<PlayerManager>
 {
     public float speed;
     private Vector2 move;

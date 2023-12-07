@@ -5,10 +5,10 @@ using UnityEngine;
 public class QuestBench : Singleton<QuestBench>
 {
     public List<ItemPoint> itemPoints;
-    Dictionary<BookBuyer, GameObject> buyerOrderFinishedDict = new Dictionary<BookBuyer, GameObject>();
+    Dictionary<int, BookBuyer> buyerOrderFinishedDict = new Dictionary<int, BookBuyer>();
     Dictionary<BookBuyer, GameObject> buyerOrderDict = new Dictionary<BookBuyer, GameObject>();
 
-    public void SetBoard(BookBuyer bookBuyer, GameObject orderPrefab, GameObject objectToCompletePrefab)
+    public void SetBoard(BookBuyer bookBuyer, GameObject orderPrefab, int objectToCompleteId)
     {
         foreach(var point in itemPoints)
         {
@@ -17,7 +17,8 @@ public class QuestBench : Singleton<QuestBench>
                 GameObject ourOrder = Instantiate(orderPrefab, transform.position, orderPrefab.transform.rotation);
                 point.AddChild(ourOrder);
                 buyerOrderDict[bookBuyer] = ourOrder;
-                buyerOrderFinishedDict[bookBuyer] = objectToCompletePrefab;
+                
+                buyerOrderFinishedDict[objectToCompleteId] = bookBuyer;
                 return;
             }
         }
@@ -28,5 +29,27 @@ public class QuestBench : Singleton<QuestBench>
     {
         GameObject reqOrder = buyerOrderDict[bookBuyer];
         Destroy(reqOrder);
+    }
+
+    public void CheckCompletion(GameObject item)
+    {
+        BookBuyer potensialBuyer;
+        var printItem = item.GetComponent<PrintingObject>();
+        if (printItem != null)
+        {
+            if (buyerOrderFinishedDict.TryGetValue(printItem.id, out potensialBuyer))
+            {
+                buyerOrderFinishedDict.Remove(printItem.id);
+
+                GameObject reqOrder = buyerOrderDict[potensialBuyer];
+                buyerOrderDict.Remove(potensialBuyer);
+                if(reqOrder !=null ) Destroy(reqOrder);
+                Destroy(item);
+                PlayerManager.Instance.objectInHands = null;
+                potensialBuyer.ReceiveOrder();
+
+            }
+        }
+        
     }
 }

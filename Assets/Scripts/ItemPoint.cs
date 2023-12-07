@@ -55,6 +55,8 @@ public class ItemPoint : MonoBehaviour
             {
                 tempHolder.transform.SetParent(transform);
                 tempHolder.transform.localPosition = Vector3.zero;
+                //OnItemPutOnPoint(tempHolder);
+                QuestBench.Instance.CheckCompletion(tempHolder);
             }
             
         }

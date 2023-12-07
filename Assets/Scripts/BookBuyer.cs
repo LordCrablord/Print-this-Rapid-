@@ -12,7 +12,8 @@ public class BookBuyer : MonoBehaviour
     [SerializeField] GameObject body;
 
     [SerializeField] GameObject orderPrefab;
-    [SerializeField] GameObject orderCompletedPrefab;
+    [SerializeField] int orderCompletedId;
+    //bool isSuccessfullyCompleted = false;
     private void Update()
     {
         if (!isBuyerActive)
@@ -29,8 +30,6 @@ public class BookBuyer : MonoBehaviour
                 timeToMakeBookEnded();
                 Destroy(gameObject);
             }
-                
-            
         }
 
     }
@@ -46,16 +45,26 @@ public class BookBuyer : MonoBehaviour
     {
         isBuyerActive = false;
         body?.SetActive(false);
-        FailOrder();
+        /*if(!isSuccessfullyCompleted)*/ FailOrder();
     }
 
     void SetTaskOnBoard()
     {
-        QuestBench.Instance.SetBoard(this, orderPrefab, orderCompletedPrefab);
+        QuestBench.Instance.SetBoard(this, orderPrefab, orderCompletedId);
     }
 
     void FailOrder()
     {
         QuestBench.Instance.RetractOrder(this);
+    }
+
+    public void ReceiveOrder()
+    {
+        /*isBuyerActive = false;
+        body?.SetActive(false);
+        isSuccessfullyCompleted = true;*/
+        Debug.Log("I'm happy!");
+        Destroy(this.gameObject);
+        //happy++
     }
 }

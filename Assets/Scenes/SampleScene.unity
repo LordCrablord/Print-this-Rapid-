@@ -1393,7 +1393,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &286455554
 Transform:
   m_ObjectHideFlags: 0
@@ -7549,6 +7549,10 @@ PrefabInstance:
     - target: {fileID: 549811546122557619, guid: 7357a73bbdeec574e90bf472c3675d59, type: 3}
       propertyPath: timeToMakeBook
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 549811546122557619, guid: 7357a73bbdeec574e90bf472c3675d59, type: 3}
+      propertyPath: orderCompletedId
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 549811546122557619, guid: 7357a73bbdeec574e90bf472c3675d59, type: 3}
       propertyPath: orderCompletedPrefab

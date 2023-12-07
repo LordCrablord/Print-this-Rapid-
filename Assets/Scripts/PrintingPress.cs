@@ -10,7 +10,7 @@ public class PrintingPress : Singleton<PrintingPress>
     [SerializeField] GameObject PamphletPrefabRed;
     [SerializeField] GameObject PamphletPrefabBlue;
     [SerializeField] GameObject PamphletPrefabGreen;
-
+    //currently, instead of pages, books
     [SerializeField] GameObject PagePrefab;
     [SerializeField] GameObject PagePrefabRed;
     [SerializeField] GameObject PagePrefabGreen;
@@ -65,14 +65,14 @@ public class PrintingPress : Singleton<PrintingPress>
         Destroy(itemPointsToPut[1].transform.GetChild(0).gameObject);
 
         int orderId = itemPointsToPut[2].transform.GetChild(0).gameObject.GetComponent<PrintingObject>().id;
-        if(orderId == 5 || orderId == 6 || orderId == 7 || orderId == 8)
+        /*if(orderId == 5 || orderId == 6 || orderId == 7 || orderId == 8)
         {
 
         }
         else
-        {
+        {*/
             Destroy(itemPointsToPut[2].transform.GetChild(0).gameObject);
-        }
+        //}
         
     }
 

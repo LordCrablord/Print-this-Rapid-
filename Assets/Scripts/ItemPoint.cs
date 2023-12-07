@@ -70,15 +70,30 @@ public class ItemPoint : MonoBehaviour
         child.transform.localPosition = Vector3.zero;
     }
 
+    void CheckForUI(bool visible)
+    {
+        GameObject ourItem;
+        if (transform.childCount > 0)
+        {
+            ourItem = transform.GetChild(0).gameObject;
+            var ui = GameManager.Instance.GetUI();
+            ui.SetTipString(visible, ourItem.GetComponent<PrintingObject>().printObjName);
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         isPlayerNear = true;
         playerCollider = other;
+
+        CheckForUI(true);
     }
 
     private void OnTriggerExit(Collider other)
     {
         isPlayerNear = false;
         playerCollider = null;
+
+        CheckForUI(false);
     }
 }

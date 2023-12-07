@@ -101,6 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 5
+  printObjName: Book Order
 --- !u!1001 &5481342041084230265
 PrefabInstance:
   m_ObjectHideFlags: 0

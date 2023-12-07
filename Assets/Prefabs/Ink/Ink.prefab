@@ -145,6 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 17
+  printObjName: Black Ink
 --- !u!1001 &2562927533237485601
 PrefabInstance:
   m_ObjectHideFlags: 0

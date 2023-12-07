@@ -8,6 +8,7 @@ public class StorageConditionToPut: MonoBehaviour
     protected Collider playerCollider;
 
     public List<GameObject> requiredItemList;
+    public string description;
     protected virtual void Update()
     {
         if (isPlayerNear)
@@ -56,17 +57,24 @@ public class StorageConditionToPut: MonoBehaviour
         }
     }
 
+    void SetUITip(bool visible)
+    {
+        var ui = GameManager.Instance.GetUI();
+        ui.SetTipString(visible, description);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         isPlayerNear = true;
         playerCollider = other;
-        Debug.Log($"{other.gameObject.name} is near {gameObject.name}");
+        SetUITip(true);
     }
 
     private void OnTriggerExit(Collider other)
     {
         isPlayerNear = false;
         playerCollider = null;
+        SetUITip(false);
     }
 
     bool hasRequiredObject()

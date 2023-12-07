@@ -7,7 +7,7 @@ public class Storage : MonoBehaviour
     [SerializeField] protected GameObject objectPrefab;
     protected bool isPlayerNear = false;
     protected Collider playerCollider;
-
+    public string instrumentName;
     protected virtual void Update()
     {
         if (isPlayerNear)
@@ -29,16 +29,23 @@ public class Storage : MonoBehaviour
         playerManager.objectInHands = ourObject;
     }
 
+    void SetUITip(bool visible)
+    {
+        var ui = GameManager.Instance.GetUI();
+        ui.SetTipString(visible, instrumentName);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         isPlayerNear = true;
         playerCollider = other;
-        Debug.Log($"{other.gameObject.name} is near {gameObject.name}");
+        SetUITip(true);
     }
 
     private void OnTriggerExit(Collider other)
     {
         isPlayerNear = false;
         playerCollider = null;
+        SetUITip(false);
     }
 }

@@ -7,14 +7,17 @@ public class GameManager : Singleton<GameManager>
 {
     public int happyCustomer = 0;
     [SerializeField] GameObject gameUI;
+    [SerializeField] GameObject optionUI;
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            gameUI.SetActive(!gameUI.activeInHierarchy);
+            optionUI.SetActive(!optionUI.activeInHierarchy);
         }
     }
+
+    public UIScript GetUI() => gameUI.GetComponent<UIScript>();
 
     public void QuitGame()
     {

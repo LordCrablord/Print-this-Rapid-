@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: id
       value: 18
       objectReference: {fileID: 0}
+    - target: {fileID: 208655718312984534, guid: 7fcff854f8fb08040b025b2cf105a4b5, type: 3}
+      propertyPath: printObjName
+      value: Green Ink
+      objectReference: {fileID: 0}
     - target: {fileID: 2562927534003728492, guid: 7fcff854f8fb08040b025b2cf105a4b5, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

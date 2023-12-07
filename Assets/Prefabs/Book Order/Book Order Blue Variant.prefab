@@ -67,5 +67,9 @@ PrefabInstance:
       propertyPath: id
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 8209480166808684215, guid: 6e10ac91a183c464b86ec383c000079e, type: 3}
+      propertyPath: printObjName
+      value: Blue Book Order
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e10ac91a183c464b86ec383c000079e, type: 3}

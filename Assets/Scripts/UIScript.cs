@@ -6,6 +6,7 @@ using TMPro;
 public class UIScript : Singleton<UIScript>
 {
     [SerializeField] TextMeshProUGUI tipTMP;
+    [SerializeField] TextMeshProUGUI finaleTMP;
 
     public void SetTipString(bool isStringActive, string text)
     {
@@ -20,5 +21,11 @@ public class UIScript : Singleton<UIScript>
     public void QuitButtonClicked()
     {
         GameManager.Instance.QuitGame();
+    }
+
+    public void SetGameOver(int happyCustomers)
+    {
+        finaleTMP.gameObject.SetActive(true);
+        finaleTMP.text = $"{happyCustomers} / 3 customers left happy from your printing store";
     }
 }

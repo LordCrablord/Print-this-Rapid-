@@ -6,12 +6,18 @@ using UnityEngine.SceneManagement;
 public class GameManager : Singleton<GameManager>
 {
     public int happyCustomer = 0;
+    public float timeTillGameOver;
     [SerializeField] GameObject gameUI;
     [SerializeField] GameObject optionUI;
     [SerializeField] GameObject helpUI;
 
     private void Update()
     {
+        timeTillGameOver -= Time.deltaTime;
+        if (timeTillGameOver <= 0.0f)
+        {
+            GameOver();
+        }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             optionUI.SetActive(!optionUI.activeInHierarchy);
@@ -19,6 +25,12 @@ public class GameManager : Singleton<GameManager>
         {
             ShowUIHelp();
         }
+    }
+
+    void GameOver()
+    {
+        gameUI.GetComponent<UIScript>().SetGameOver(happyCustomer); 
+        optionUI.SetActive(true);
     }
 
     void ShowUIHelp()

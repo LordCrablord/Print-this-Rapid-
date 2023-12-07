@@ -15,7 +15,7 @@ public class StorageConditionToPut: MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                if (hasRequiredObject())
+                if (hasRequiredObject() || HasEmptyHands())
                 {
                     ExchangeItems();
                     PrintingPress.Instance.CkeckPrinting(playerCollider.gameObject);
@@ -95,5 +95,14 @@ public class StorageConditionToPut: MonoBehaviour
 
         }
         return false;
+    }
+
+    bool HasEmptyHands()
+    {
+        var playerManager = playerCollider.GetComponent<PlayerManager>();
+        var playerObject = playerManager.objectInHands;
+
+        if (playerObject == null) return true;
+        else return false;
     }
 }

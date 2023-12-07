@@ -14,8 +14,11 @@ public class StorageConditionToPut: MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                if(hasRequiredObject())
+                if (hasRequiredObject())
+                {
                     ExchangeItems();
+                    PrintingPress.Instance.CkeckPrinting(playerCollider.gameObject);
+                }
             }
         }
     }

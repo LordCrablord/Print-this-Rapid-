@@ -30,6 +30,10 @@ public class PlayerManager : MonoBehaviour
         Vector3 movement = new Vector3(move.x, 0, move.y);
 
         characterController.Move(movement * speed * Time.deltaTime);
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), 0.15f);
+        if (movement != Vector3.zero)
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), 0.5f);
+        }
+        
     }
 }

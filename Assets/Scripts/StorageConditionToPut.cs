@@ -2,31 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public delegate void Notify(GameObject obj);
-public class ItemPoint : MonoBehaviour
+public class StorageConditionToPut: MonoBehaviour
 {
-    bool isPlayerNear = false;
-    Collider playerCollider;
+    protected bool isPlayerNear = false;
+    protected Collider playerCollider;
 
-    
-    public event Notify ItemPutOnPoint;
-    protected virtual void OnItemPutOnPoint(GameObject obj)
-    {
-        ItemPutOnPoint?.Invoke(obj);
-    }
-
-    private void Update()
+    public List<GameObject> requiredItemList;
+    protected virtual void Update()
     {
         if (isPlayerNear)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                Debug.Log($"{gameObject.name} is triggered by {playerCollider.gameObject.name}");
-                ExchangeItems();
+                if(hasRequiredObject())
+                    ExchangeItems();
             }
         }
     }
-    
+
     void ExchangeItems()
     {
         GameObject ourItem;
@@ -40,7 +33,7 @@ public class ItemPoint : MonoBehaviour
         }
 
         var playerManager = playerCollider.GetComponent<PlayerManager>();
-        if(playerManager != null)
+        if (playerManager != null)
         {
             var tempHolder = playerManager.objectInHands;
 
@@ -51,32 +44,45 @@ public class ItemPoint : MonoBehaviour
                 ourItem.transform.localPosition = Vector3.zero;
             }
 
-            if(tempHolder != null)
+            if (tempHolder != null)
             {
                 tempHolder.transform.SetParent(transform);
                 tempHolder.transform.localPosition = Vector3.zero;
             }
-            
+
         }
-    }
-
-    public bool CheckIfFreePlace() => transform.childCount > 0 ? false : true;
-
-    public void AddChild(GameObject child)
-    {
-        child.transform.SetParent(transform);
-        child.transform.localPosition = Vector3.zero;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         isPlayerNear = true;
         playerCollider = other;
+        Debug.Log($"{other.gameObject.name} is near {gameObject.name}");
     }
 
     private void OnTriggerExit(Collider other)
     {
         isPlayerNear = false;
         playerCollider = null;
+    }
+
+    bool hasRequiredObject()
+    {
+        var playerManager = playerCollider.GetComponent<PlayerManager>();
+        var playerObject = playerManager.objectInHands;
+
+        if (playerObject != null)
+        {
+            int playerObjectID = playerObject.GetComponent<PrintingObject>().id;
+
+            foreach (var reqItem in requiredItemList)
+            {
+                int reqObjectID = reqItem.GetComponent<PrintingObject>().id;
+                if (playerObjectID == reqObjectID)
+                    return true;
+            }
+
+        }
+        return false;
     }
 }

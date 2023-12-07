@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using System;
 
 public class BookBuyer : MonoBehaviour
 {
@@ -13,6 +15,8 @@ public class BookBuyer : MonoBehaviour
 
     [SerializeField] GameObject orderPrefab;
     [SerializeField] int orderCompletedId;
+    [SerializeField] GameObject timerUI;
+    [SerializeField] TextMeshProUGUI timerToMakeBookTMP;
     //bool isSuccessfullyCompleted = false;
     private void Update()
     {
@@ -25,6 +29,10 @@ public class BookBuyer : MonoBehaviour
         else
         {
             timeToMakeBook -= Time.deltaTime;
+
+            float roundedNumber = (float)Math.Floor(timeToMakeBook * 100) / 100;
+            timerToMakeBookTMP.text = roundedNumber.ToString("F2");
+
             if (timeToMakeBook <= 0.0f)
             {
                 timeToMakeBookEnded();
@@ -38,6 +46,7 @@ public class BookBuyer : MonoBehaviour
     {
         isBuyerActive = true;
         body?.SetActive(true);
+        timerUI.SetActive(true);
         SetTaskOnBoard();
     }
 

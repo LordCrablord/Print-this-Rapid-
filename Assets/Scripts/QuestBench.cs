@@ -23,4 +23,10 @@ public class QuestBench : Singleton<QuestBench>
         }
         Debug.LogError("No more place!!!!");
     }
+
+    public void RetractOrder(BookBuyer bookBuyer)
+    {
+        GameObject reqOrder = buyerOrderDict[bookBuyer];
+        Destroy(reqOrder);
+    }
 }

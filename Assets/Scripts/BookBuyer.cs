@@ -46,10 +46,16 @@ public class BookBuyer : MonoBehaviour
     {
         isBuyerActive = false;
         body?.SetActive(false);
+        FailOrder();
     }
 
     void SetTaskOnBoard()
     {
         QuestBench.Instance.SetBoard(this, orderPrefab, orderCompletedPrefab);
+    }
+
+    void FailOrder()
+    {
+        QuestBench.Instance.RetractOrder(this);
     }
 }

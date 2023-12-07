@@ -4635,6 +4635,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2082079700163815943, guid: 5dc910761e845504fb9d2aedc49c92c9, type: 3}
     - target: {fileID: 549811546122557619, guid: 7357a73bbdeec574e90bf472c3675d59, type: 3}
+      propertyPath: timeToMakeBook
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 549811546122557619, guid: 7357a73bbdeec574e90bf472c3675d59, type: 3}
       propertyPath: orderCompletedPrefab
       value: 
       objectReference: {fileID: 4434301336524084740, guid: bfd5095246ca5494dbb5d26d735df7cc, type: 3}

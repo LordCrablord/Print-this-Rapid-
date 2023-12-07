@@ -51,6 +51,14 @@ public class ItemPoint : MonoBehaviour
         }
     }
 
+    public bool CheckIfFreePlace() => transform.childCount > 0 ? false : true;
+
+    public void AddChild(GameObject child)
+    {
+        child.transform.SetParent(transform);
+        child.transform.localPosition = Vector3.zero;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         isPlayerNear = true;

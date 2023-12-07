@@ -11,9 +11,8 @@ public class BookBuyer : MonoBehaviour
 
     [SerializeField] GameObject body;
 
-    [SerializeField] GameObject bookToDoPrefab;
-    [SerializeField] GameObject bookBlankPrefab;
-    [SerializeField] GameObject QuestBoard;
+    [SerializeField] GameObject orderPrefab;
+    [SerializeField] GameObject orderCompletedPrefab;
     private void Update()
     {
         if (!isBuyerActive)
@@ -40,11 +39,17 @@ public class BookBuyer : MonoBehaviour
     {
         isBuyerActive = true;
         body?.SetActive(true);
+        SetTaskOnBoard();
     }
 
     void timeToMakeBookEnded()
     {
         isBuyerActive = false;
         body?.SetActive(false);
+    }
+
+    void SetTaskOnBoard()
+    {
+        QuestBench.Instance.SetBoard(this, orderPrefab, orderCompletedPrefab);
     }
 }

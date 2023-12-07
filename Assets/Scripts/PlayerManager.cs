@@ -9,6 +9,8 @@ public class PlayerManager : MonoBehaviour
     private Vector2 move;
     [SerializeField] CharacterController characterController;
 
+    public GameObject objectInHands;
+    public Transform handsPos;
     public void OnMove(InputAction.CallbackContext context)
     {
         move = context.ReadValue<Vector2>();

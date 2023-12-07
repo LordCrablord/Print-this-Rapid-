@@ -11,6 +11,9 @@ public class BookBuyer : MonoBehaviour
 
     [SerializeField] GameObject body;
 
+    [SerializeField] GameObject bookToDoPrefab;
+    [SerializeField] GameObject bookBlankPrefab;
+    [SerializeField] GameObject QuestBoard;
     private void Update()
     {
         if (!isBuyerActive)

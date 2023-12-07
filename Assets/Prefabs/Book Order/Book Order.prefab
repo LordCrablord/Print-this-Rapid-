@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5866297235406228777}
   - component: {fileID: 8542678719417711075}
   m_Layer: 0
-  m_Name: Book order
+  m_Name: Book Order
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -141,11 +141,11 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 4f0a3b9d837e0ae4680273ba2b9a8c00, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 5be2c283e01674f4c8801aa08e06668a, type: 2}
+      objectReference: {fileID: 2100000, guid: 9fefc56539fc2fd4c867019f0f88b72d, type: 2}
     - target: {fileID: -7511558181221131132, guid: 4f0a3b9d837e0ae4680273ba2b9a8c00, type: 3}
       propertyPath: m_Materials.Array.data[2]
       value: 
-      objectReference: {fileID: 2100000, guid: 5be2c283e01674f4c8801aa08e06668a, type: 2}
+      objectReference: {fileID: 2100000, guid: 9fefc56539fc2fd4c867019f0f88b72d, type: 2}
     - target: {fileID: 919132149155446097, guid: 4f0a3b9d837e0ae4680273ba2b9a8c00, type: 3}
       propertyPath: m_Name
       value: bannerGreen

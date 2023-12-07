@@ -65,6 +65,6 @@ public class BookBuyer : MonoBehaviour
         isSuccessfullyCompleted = true;*/
         Debug.Log("I'm happy!");
         Destroy(this.gameObject);
-        //happy++
+        GameManager.Instance.happyCustomer++;
     }
 }

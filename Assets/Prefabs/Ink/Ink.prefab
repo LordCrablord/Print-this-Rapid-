@@ -106,6 +106,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2562927534228593295}
+  - component: {fileID: 208655718312984534}
   m_Layer: 0
   m_Name: Ink
   m_TagString: Untagged
@@ -131,6 +132,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &208655718312984534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2562927534228593294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55850c9c0d99bf44faf2d11c1f75b8de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 17
 --- !u!1001 &2562927533237485601
 PrefabInstance:
   m_ObjectHideFlags: 0

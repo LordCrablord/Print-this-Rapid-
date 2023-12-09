@@ -17,6 +17,8 @@ public class BookBuyer : MonoBehaviour
     [SerializeField] int orderCompletedId;
     [SerializeField] GameObject timerUI;
     [SerializeField] TextMeshProUGUI timerToMakeBookTMP;
+    [SerializeField] GameObject timerForMainUi;
+    [SerializeField] TextMeshProUGUI timerForMainUiTMP;
     //bool isSuccessfullyCompleted = false;
     private void Update()
     {
@@ -32,6 +34,7 @@ public class BookBuyer : MonoBehaviour
 
             float roundedNumber = (float)Math.Floor(timeToMakeBook * 100) / 100;
             timerToMakeBookTMP.text = roundedNumber.ToString("F2");
+            timerForMainUiTMP.text = roundedNumber.ToString("F2");
 
             if (timeToMakeBook <= 0.0f)
             {
@@ -48,13 +51,17 @@ public class BookBuyer : MonoBehaviour
         body?.SetActive(true);
         timerUI.SetActive(true);
         SetTaskOnBoard();
+
+        timerForMainUi.SetActive(true);
     }
 
     void timeToMakeBookEnded()
     {
         isBuyerActive = false;
         body?.SetActive(false);
-        /*if(!isSuccessfullyCompleted)*/ FailOrder();
+        timerForMainUi.SetActive(false);
+        /*if(!isSuccessfullyCompleted)*/
+        FailOrder();
     }
 
     void SetTaskOnBoard()
@@ -73,6 +80,7 @@ public class BookBuyer : MonoBehaviour
         body?.SetActive(false);
         isSuccessfullyCompleted = true;*/
         Debug.Log("I'm happy!");
+        timerForMainUi.SetActive(false);
         Destroy(this.gameObject);
         GameManager.Instance.happyCustomer++;
     }

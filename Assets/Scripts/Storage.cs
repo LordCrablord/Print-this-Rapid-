@@ -8,6 +8,8 @@ public class Storage : MonoBehaviour
     protected bool isPlayerNear = false;
     protected Collider playerCollider;
     public string instrumentName;
+
+    [SerializeField] protected AudioSource audioSource;
     protected virtual void Update()
     {
         if (isPlayerNear)
@@ -27,6 +29,8 @@ public class Storage : MonoBehaviour
         ourObject.transform.localPosition = Vector3.zero;
         if (playerManager.objectInHands != null) Destroy(playerManager.objectInHands);
         playerManager.objectInHands = ourObject;
+
+        if (audioSource != null) audioSource.Play();
     }
 
     void SetUITip(bool visible)

@@ -16,6 +16,8 @@ public class PrintingPress : Singleton<PrintingPress>
     [SerializeField] GameObject PagePrefabGreen;
     [SerializeField] GameObject PagePrefabBlue;
 
+
+    [SerializeField] AudioSource audioSource;
     GameObject playerObject;
 
     public void CkeckPrinting(GameObject playerGameObject)
@@ -55,6 +57,8 @@ public class PrintingPress : Singleton<PrintingPress>
         var printResult = Instantiate(objectPrefab, playerHandsPos);
         printResult.transform.localPosition = Vector3.zero;
         playerManager.objectInHands = printResult;
+
+        audioSource?.Play();
 
         DestroyPrintingObjects();
     }

@@ -19,6 +19,11 @@ public class BookBuyer : MonoBehaviour
     [SerializeField] TextMeshProUGUI timerToMakeBookTMP;
     [SerializeField] GameObject timerForMainUi;
     [SerializeField] TextMeshProUGUI timerForMainUiTMP;
+
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip arrivalSound;
+    [SerializeField] AudioClip failSound;
+    [SerializeField] AudioClip successSound;
     //bool isSuccessfullyCompleted = false;
     private void Update()
     {
@@ -53,6 +58,9 @@ public class BookBuyer : MonoBehaviour
         SetTaskOnBoard();
 
         timerForMainUi.SetActive(true);
+
+        audioSource.clip = arrivalSound;
+        audioSource.Play();
     }
 
     void timeToMakeBookEnded()
@@ -61,6 +69,7 @@ public class BookBuyer : MonoBehaviour
         body?.SetActive(false);
         timerForMainUi.SetActive(false);
         /*if(!isSuccessfullyCompleted)*/
+        GameManager.Instance.PlayBuyerSound(failSound);
         FailOrder();
     }
 
@@ -79,7 +88,7 @@ public class BookBuyer : MonoBehaviour
         /*isBuyerActive = false;
         body?.SetActive(false);
         isSuccessfullyCompleted = true;*/
-        Debug.Log("I'm happy!");
+        GameManager.Instance.PlayBuyerSound(successSound);
         timerForMainUi.SetActive(false);
         Destroy(this.gameObject);
         GameManager.Instance.happyCustomer++;

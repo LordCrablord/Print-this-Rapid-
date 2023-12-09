@@ -7,7 +7,7 @@ public class ItemPoint : MonoBehaviour
 {
     bool isPlayerNear = false;
     Collider playerCollider;
-
+    [SerializeField] AudioClip itemPut;
     
     public event Notify ItemPutOnPoint;
     protected virtual void OnItemPutOnPoint(GameObject obj)
@@ -58,7 +58,7 @@ public class ItemPoint : MonoBehaviour
                 //OnItemPutOnPoint(tempHolder);
                 QuestBench.Instance.CheckCompletion(tempHolder);
             }
-            
+            GameManager.Instance.PlaySound(itemPut);
         }
     }
 

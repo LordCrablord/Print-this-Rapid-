@@ -9,6 +9,7 @@ public class StorageConditionToPut: MonoBehaviour
 
     public List<GameObject> requiredItemList;
     public string description;
+    [SerializeField] AudioClip audioClip;
     protected virtual void Update()
     {
         if (isPlayerNear)
@@ -53,7 +54,7 @@ public class StorageConditionToPut: MonoBehaviour
                 tempHolder.transform.SetParent(transform);
                 tempHolder.transform.localPosition = Vector3.zero;
             }
-
+            GameManager.Instance.PlaySound(audioClip);
         }
     }
 

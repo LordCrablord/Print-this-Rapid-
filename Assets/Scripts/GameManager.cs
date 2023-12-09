@@ -11,6 +11,14 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] GameObject optionUI;
     [SerializeField] GameObject helpUI;
 
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioSource buyerAudioSource;
+
+    /*private void Start()
+    {
+        AudioSource.PlayClipAtPoint(backgroundMusic, Vector3.zero);
+    }*/
+
     private void Update()
     {
         timeTillGameOver -= Time.deltaTime;
@@ -49,5 +57,17 @@ public class GameManager : Singleton<GameManager>
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void PlaySound(AudioClip audioClip)
+    {
+        audioSource.clip = audioClip;
+        audioSource.Play();
+    }
+
+    public void PlayBuyerSound(AudioClip audioClip)
+    {
+        buyerAudioSource.clip = audioClip;
+        buyerAudioSource.Play();
     }
 }

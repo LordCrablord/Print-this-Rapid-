@@ -11,6 +11,7 @@ public class PlayerManager : Singleton<PlayerManager>
 
     public GameObject objectInHands;
     public Transform handsPos;
+    [SerializeField] Animator animator;
     public void OnMove(InputAction.CallbackContext context)
     {
         move = context.ReadValue<Vector2>();
@@ -35,7 +36,13 @@ public class PlayerManager : Singleton<PlayerManager>
         if (movement != Vector3.zero)
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), 0.5f);
+            animator.SetTrigger("Walk");
         }
+        else
+        {
+            animator.SetTrigger("Stop");
+        }
+        Debug.Log(movement);
         Gravity();
     }
 

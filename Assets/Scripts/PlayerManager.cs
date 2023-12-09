@@ -36,6 +36,12 @@ public class PlayerManager : Singleton<PlayerManager>
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), 0.5f);
         }
-        
+        Gravity();
+    }
+
+    void Gravity()
+    {
+        Vector3 movement = new Vector3(0, -5, 0);
+        characterController.Move(movement * Time.deltaTime);
     }
 }
